@@ -15,8 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->enum('user_type',['admin','customer'])->default('customer');
+            $table->string('phone_number')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            // Social auth fields
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->string('provider_token')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });
