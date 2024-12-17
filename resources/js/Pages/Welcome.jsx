@@ -1,3 +1,5 @@
+import HomePageHero from '@/Components/HomePageHero';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
@@ -14,8 +16,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     return (
         <>
-            <Head title="Welcome" />
-            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+            {/* <Head title="Welcome" /> */}
+            {/* <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
                 <img
                     id="background"
                     className="absolute -left-20 top-0 max-w-[877px]"
@@ -121,11 +123,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                     Laravel has wonderful
                                                     documentation covering every
                                                     aspect of the framework.
-                                                    Whether you are a newcomer
-                                                    or have prior experience
-                                                    with Laravel, we recommend
-                                                    reading our documentation
-                                                    from beginning to end.
+                                                    
                                                 </p>
                                             </div>
                                         </div>
@@ -171,10 +169,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <p className="mt-4 text-sm/relaxed">
                                             Laracasts offers thousands of video
                                             tutorials on Laravel, PHP, and
-                                            JavaScript development. Check them
-                                            out, see for yourself, and massively
-                                            level up your development skills in
-                                            the process.
+                                            JavaScript development. 
                                         </p>
                                     </div>
 
@@ -355,7 +350,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </footer>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <AuthenticatedLayout>
+                <HomePageHero/>
+            </AuthenticatedLayout>
+            
+            
         </>
     );
 }
