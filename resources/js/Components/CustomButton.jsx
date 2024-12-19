@@ -12,7 +12,7 @@ export default function CustomButton({
             <div data-button-size="medium" data-button-style="nav-secondary" 
                 className={`max-w-full inline-block cursor-pointer rounded-full border-2 ` + className}
             >
-                <div class=" text-[1.125rem] text">
+                <div class="text-base md:text-[1.125rem] text">
                     <div className="btn_main_text">
                         {value}
                     </div>

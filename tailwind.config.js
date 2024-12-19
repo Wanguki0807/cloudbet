@@ -14,6 +14,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                inter: ['Inter', ...defaultTheme.fontFamily.sans]
             },
             colors: {
                'brand-purple': '#8d52da',
@@ -38,6 +39,14 @@ export default {
                 'brand-dark-green': '#283329',
                 'brand-dark-blue': '#0f1032',
                 'brand-dark-yellow': '#94b300',
+                'on-surface-1': '#E0E0E0',
+                'surface-1': '#211C25',
+                'on-surface-2': '#141114',
+                'on-surface-3': '#8F8F8F',
+                'background-btn-disabled': '#1F1F1F',
+                'btn-text-color': '#696969',
+               'swatch-tertiary-1': '#26202b',
+               'on-tertiary-3': '#a6a6a6',
             }
         },
     },

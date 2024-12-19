@@ -24,7 +24,7 @@ export default function AuthenticatedLayout({ header, children }) {
                 </header>
             )} */}
 
-            <main>{children}</main>
+            <main className='bg-swatch-dark'>{children}</main>
         </div>
     );
 }

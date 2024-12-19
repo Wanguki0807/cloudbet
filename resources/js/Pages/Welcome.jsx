@@ -1,3 +1,4 @@
+import HomePageFirstSection from '@/Components/HomePageFirstSection';
 import HomePageHero from '@/Components/HomePageHero';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
@@ -353,6 +354,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             </div> */}
             <AuthenticatedLayout>
                 <HomePageHero/>
+                <HomePageFirstSection/>
             </AuthenticatedLayout>
             
             

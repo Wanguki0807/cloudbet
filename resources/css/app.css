@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -141,6 +142,21 @@
     --border-width--1: 4px;
     --radius--rounded-3xl-0-5: 1.375rem;
     --size--44: 11rem;
+    --brand--green: #4b7c39;
+    --brand--blue: #2d4be6;
+    --brand--yellow: #dffd51;
+    --brand--black: black;
+    --brand--light-yellow: #df9;
+    --brand--pale-orange: #fff6ec;
+    --brand--pale-purple: #ede0ff;
+    --brand--pale-green: #d8f3b5;
+    --brand--pale-blue: #ccd0e5;
+    --brand--pale-yellow: #feffd9;
+    --brand--dark-orange: #4d2e27;
+    --brand--dark-purple: #300931;
+    --brand--dark-green: #283329;
+    --brand--dark-blue: #0f1032;
+    --brand--dark-yellow: #94b300;
     --outline--outline-1: var(--surface--surface-1);
     --outline--outline-2: var(--surface--surface-2);
     --surface--surface-1: #211c25;
@@ -250,7 +266,81 @@
     --text-transform--uppercase: 0px;
     --text-transform--capitalize: 0px;
     --text-transform--lowercase: 0px;
+    --column-count: 12;
+    --grid-main: repeat(var(--column-count), minmax(0, 1fr));
+    --grid-1: repeat(1, minmax(0, 1fr));
+    --grid-2: repeat(2, minmax(0, 1fr));
+    --grid-3: repeat(3, minmax(0, 1fr));
+    --grid-4: repeat(4, minmax(0, 1fr));
+    --grid-5: repeat(5, minmax(0, 1fr));
+    --grid-6: repeat(6, minmax(0, 1fr));
+    --grid-7: repeat(7, minmax(0, 1fr));
+    --grid-8: repeat(8, minmax(0, 1fr));
+    --grid-9: repeat(9, minmax(0, 1fr));
+    --grid-10: repeat(10, minmax(0, 1fr));
+    --grid-11: repeat(11, minmax(0, 1fr));
+    --grid-12: repeat(12, minmax(0, 1fr));
+    --breakout-gutter: minmax(calc(var(--padding-horizontal--8) - var(--grid-gap--8)), 1fr);
+    --breakout-remaining: calc(var(--max-width--8) -(var(--padding-horizontal--8)* 2));
+    --breakout-start: [full-start] var(--breakout-gutter) [content-start];
+    --breakout-end: [content-end] var(--breakout-gutter) [full-end];
+    --grid-breakout-single: var(--breakout-start) minmax(0, var(--breakout-remaining)) var(--breakout-end);
+    --grid-breakout: var(--breakout-start) repeat(var(--column-count), minmax(0, calc((var(--breakout-remaining) -(var(--grid-gap--8)*(var(--column-count) - 1))) / var(--column-count)))) var(--breakout-end);
+    --font-weight--inherit: inherit;
+    --font-weight--100: 100;
+    --font-weight--200: 200;
+    --font-weight--300: 300;
+    --font-weight--400: 400;
+    --font-weight--500: 500;
+    --font-weight--600: 600;
+    --font-weight--700: 700;
+    --font-weight--800: 800;
+    --font-weight--900: 900;
+    --text-transform--none: none;
+    --text-transform--uppercase: uppercase;
+    --text-transform--capitalize: capitalize;
+    --text-transform--lowercase: lowercase;
+    --text-transform--inherit: inherit;
+    --max-width--none: none;
+    --theme--background: var(--swatch--light);
+    --theme--text: var(--swatch--on-primary);
+    --theme--border: var(--swatch--brand);
+    --button--background: var(--swatch--brand);
+    --button--text: var(--swatch--on-primary);
+    --button--border: var(--swatch--brand);
+    --button--background-hover: var(--swatch--brand-hover);
+    --button--text-hover: var(--swatch--dark);
+    --button--border-hover: var(--swatch--brand-hover);
+    --button-secondary--background: var(--swatch--transparent);
+    --button-secondary--text: var(--swatch--brand-text);
+    --button-secondary--border: var(--swatch--brand);
+    --button-secondary--background-hover: var(--swatch--brand-hover);
+    --button-secondary--text-hover: var(--swatch--dark);
+    --button-secondary--border-hover: var(--swatch--brand-hover);
+    --button-tertiary--background: var(--swatch--tertiary-1);
+    --button-tertiary--text: var(--swatch--on-tertiary-1);
+    --button-tertiary--border: var(--swatch--tertiary-1);
+    --button-tertiary--background-hover: var(--swatch--tertiary-hover);
+    --button-tertiary--text-hover: var(--swatch--on-tertiary-1);
+    --button-tertiary--border-hover: var(--swatch--tertiary-1);
+    --button-nav--background: var(--swatch--on-tertiary-1);
+    --button-nav--text: var(--swatch--brand-text);
+    --button-nav--border: var(--swatch--on-tertiary-1);
+    --button-nav--background-hover: var(--swatch--tertiary-hover);
+    --button-nav--text-hover: var(--swatch--on-tertiary-1);
+    --button-nav--border-hover: var(--swatch--tertiary-hover);
+    --button-nav-secondary--background: var(--swatch--transparent);
+    --button-nav-secondary--text: var(--swatch--brand-text);
+    --button-nav-secondary--border: var(--swatch--on-tertiary-1);
+    --button-nav-secondary--background-hover: var(--swatch--on-tertiary-1);
+    --button-nav-secondary--text-hover: var(--swatch--brand-text);
+    --button-nav-secondary--border-hover: var(--swatch--on-tertiary-1);
+    --tw-gradient-to: #2c2532;
+    --tw-gradient-from: #141114;
+    /* --tw-gradient-to: rgba(20, 17, 20, 0); */
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+
 
 [data-color="purple"] {
     color: var(--brand--purple);
@@ -284,3 +374,128 @@
     position: absolute;
     bottom: 45%;
 }
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.to-tertiary-2 {
+    --tw-gradient-to: #2c2532;
+}
+
+.from-background {
+    --tw-gradient-from: #141114;
+    --tw-gradient-to: rgba(20, 17, 20, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+
+/* AuthPage.css */
+
+.auth-container {
+    
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .form-container {
+    display: flex;
+    width: 200%;
+    transition: transform 0.5s ease;
+  }
+  
+  .login-active {
+    transform: translateX(0%);
+  }
+  
+  .signup-active {
+    transform: translateX(-50%);
+  }
+  
+  .form {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+/* Flip Button Styles */
+.button-container {
+    
+    height: 50px; 
+    position: relative;
+}
+
+.flip-button {
+    cursor: pointer;
+    position: absolute;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+/* Flip-Up Animation */
+.flip-up {
+    animation-name: flipUp;
+}
+
+@keyframes flipUp {
+    0% {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+}
+
+/* Flip-Down Animation */
+.flip-down {
+animation-name: flipDown;
+}
+
+@keyframes flipDown {
+    0% {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+}
+
+  
+/* HomePage First Section Style */
+
+.section_top {
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.u-overflow-hidden {
+    overflow: hidden;
+}
+.section {
+    position: relative;
+}
+section, header, footer {
+    position: relative;
+}
+
