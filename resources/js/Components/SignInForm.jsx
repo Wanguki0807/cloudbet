@@ -100,7 +100,7 @@ export default function SignInForm() {
                 ></div>
             </section>
             <section>
-                <form action="" className='flex flex-col gap-y-5 p-5'>
+                <form action="post" className='flex flex-col gap-y-5 p-5'>
                     <Input label="Email or username" type="text" name="email-username"/>
                     <Input label="Password" type="password" name="password"/>
                     <Button type="submit" className='disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow' disabled={true}>
@@ -114,10 +114,12 @@ export default function SignInForm() {
                         </span>
                     </div>
                 </div>
-                
+
             </section>
         </div>
-      
+
     </>
   )
 }
+
+

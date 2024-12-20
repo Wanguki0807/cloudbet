@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Button({
   type,
-  children, 
-  disabled, 
+  children,
+  disabled,
   className = '',
   onClick
 }) {
