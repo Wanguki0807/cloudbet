@@ -93,16 +93,16 @@ export default function SignUpForm() {
                                     </span>
                                 </label>
                             </div>
-                            
+
                         </div>
                     </div>
                     <Button type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow' disabled={true}>
                         <span>Join now</span>
                     </Button>
                 </form>
-                
+
             </section>
         </div>
-    </> 
+    </>
   )
 }

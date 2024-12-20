@@ -27,8 +27,8 @@ const NavBar = () => {
             </div>
             <div>
                 <div className='flex gap-3'>
-                    <CustomButton value="Sign in" className='py-2 px-5 md:px-7 text-brand-light-purple font-bold border-brand-light-purple bg-transparent cursor-pointer'/>
-                    <CustomButton value="Join" className='py-2 px-5 md:px-7 font-bold border-brand-light-purple bg-brand-light-purple cursor-pointer'/>
+                    <CustomButton url='/register' value="Sign in" className='py-2 px-5 md:px-7 text-brand-light-purple font-bold border-brand-light-purple bg-transparent cursor-pointer'/>
+                    <CustomButton url='/login' value="Join" className='py-2 px-5 md:px-7 font-bold border-brand-light-purple bg-brand-light-purple cursor-pointer'/>
                 </div>
 
             </div>

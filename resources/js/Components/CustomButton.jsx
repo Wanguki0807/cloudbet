@@ -4,12 +4,13 @@ import { Link } from '@inertiajs/react'
 export default function CustomButton({
     value,
     className = "",
+    url,
 }) {
 
   return (
     <>
-        <Link href="auth/sign-in" >
-            <div data-button-size="medium" data-button-style="nav-secondary" 
+        <Link href={url} >
+            <div data-button-size="medium" data-button-style="nav-secondary"
                 className={`max-w-full inline-block cursor-pointer rounded-full border-2 ` + className}
             >
                 <div class="text-base md:text-[1.125rem] text">
@@ -18,7 +19,7 @@ export default function CustomButton({
                     </div>
                 </div>
             </div>
-        </Link> 
+        </Link>
     </>
   )
 }
