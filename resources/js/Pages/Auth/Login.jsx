@@ -12,25 +12,13 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import { useState } from 'react';
 
 export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: false,
-    });
 
     const [isLogin, setIsLogin] = useState(true);
 
-  const toggleAuth = () => {
-    setIsLogin(!isLogin);
-  };
-
-    const submit = (e) => {
-        e.preventDefault();
-
-        post(route('login'), {
-            onFinish: () => reset('password'),
-        });
+    const toggleAuth = () => {
+        setIsLogin(!isLogin);
     };
+
 
     return (
         <GuestLayout>

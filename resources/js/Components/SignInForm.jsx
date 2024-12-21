@@ -1,9 +1,24 @@
 import React from 'react'
 import Input from './Input';
 import Button from './Button';
-import { Link } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
+
 
 export default function SignInForm() {
+
+    const { data, setData, post, processing, errors, reset } = useForm({
+        email_username: '',
+        password: '',
+        remember: false,
+    });
+
+    const submit = (e) => {
+        e.preventDefault();
+        post(('/login'), {
+            onFinish: () => reset('password'),
+        });
+    };
+
   return (
     <>
         <div className='w-full'>
@@ -100,17 +115,30 @@ export default function SignInForm() {
                 ></div>
             </section>
             <section>
-                <form action="post" className='flex flex-col gap-y-5 p-5'>
-                    <Input label="Email or username" type="text" name="email-username"/>
-                    <Input label="Password" type="password" name="password"/>
-                    <Button type="submit" className='disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow' disabled={true}>
+                <form onSubmit={submit} action="post" className='flex flex-col gap-y-5 p-5'>
+                    <Input 
+                        label="Email or username" 
+                        type="text" name="email_username" 
+                        value={data.email_username} 
+                        setValue={(e) => setData('email_username', e.target.value)}
+                    />
+                    <Input 
+                        label="Password" 
+                        type="password" 
+                        name="password"
+                        setValue={(e) => setData('password', e.target.value)}
+                    />
+                    <Button 
+                        type="submit" 
+                        className='disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow' 
+                        disabled={data.email_username === '' || data.password === '' || processing}>
                         <span>Continue</span>
                     </Button>
                 </form>
                 <div>
                     <div className='flex items-center justify-center text-xs'>
                         <span className='cursor-pointer '>
-                            <Link href='forgot-password' className='hover:text-brand-purple hover:border-b hover:border-brand-purple py-1'>Forget Password</Link>
+                            <Link href='/forgot-password' className='hover:text-brand-purple hover:border-b hover:border-brand-purple py-1'>Forget Password</Link>
                         </span>
                     </div>
                 </div>
