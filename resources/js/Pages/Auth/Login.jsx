@@ -107,30 +107,7 @@ export default function Login({ status, canResetPassword }) {
                     
                     </div>
                 </div>
-                 {/* <div className="auth-container">
-                    <div className={`form-container ${isLogin ? "login-active" : "signup-active"}`}>
-                        <div className="form login-form">
-                        <h2>Login</h2>
-                        <form>
-                            <input type="text" placeholder="Username" />
-                            <input type="password" placeholder="Password" />
-                            <button type="submit">Login</button>
-                        </form>
-                        </div>
-                        <div className="form signup-form">
-                        <h2>Sign Up</h2>
-                        <form>
-                            <input type="text" placeholder="Username" />
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Password" />
-                            <button type="submit">Sign Up</button>
-                        </form>
-                        </div>
-                    </div>
-                    <button className="toggle-btn" onClick={toggleAuth}>
-                        {isLogin ? "Switch to Sign Up" : "Switch to Login"}
-                    </button>
-                </div> */}
+
             </div>
         </GuestLayout>
     );

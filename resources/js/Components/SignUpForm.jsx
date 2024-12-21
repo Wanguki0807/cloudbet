@@ -2,9 +2,23 @@ import React from 'react';
 import Input from './Input';
 import Button from './Button';
 import Checkbox from './Checkbox';
-import { Link } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 
 export default function SignUpForm() {
+
+    const { data, setData, post, processing, errors, reset } = useForm({
+        email: '',
+        password: '',
+        agePermission: false,
+    });
+
+    const submitRegForm = (e) => {
+        e.preventDefault();
+        post('/register', {
+            onFinish: () => reset('password'),
+        });
+    };
+
   return (
    <>
         <div className='w-full'>
@@ -75,12 +89,29 @@ export default function SignUpForm() {
                 ></div>
             </section>
             <section>
-                <form action="" className='flex flex-col gap-y-5 p-5'>
-                    <Input label="Email" type="text" name="email-username"/>
-                    <Input label="Password" type="password" name="password"/>
+                <form onSubmit={submitRegForm}  className='flex flex-col gap-y-5 p-5'>
+                    <Input 
+                        label="Email"  
+                        type="text" 
+                        name="email"
+                        value={data.email}
+                        setValue={(e) => setData('email', e.target.value)}
+                    />
+                    <Input 
+                        label="Password" 
+                        type="password" 
+                        name="password"
+                        value={data.password}
+                        setValue={(e) => setData('password', e.target.value)}
+                    />
                     <div className='py-2'>
                         <div className='flex items-center gap-4'>
-                            <Checkbox id='age' className='bg-transparent pr-3 text-on-surface-3 border-brand-purple checked:ring-0 checked:outline-none checked:border-none focus:ring-0 outline-none focus:outline-none ring-0 focus:border-none'/>
+                            <Checkbox 
+                                id='age' 
+                                className='bg-transparent pr-3 text-on-surface-3 border-brand-purple checked:ring-0 checked:outline-none checked:border-none focus:ring-0 outline-none focus:outline-none ring-0 focus:border-none'
+                                checked={data.agePermission}
+                                onChange={(e) => setData('agePermission', e.target.checked)}
+                            />
                             <div>
                                 <label htmlFor="age" className='text-xs flex flex-col items-start'>
                                     <span>I am at least 18 years old and have read the</span>
@@ -96,7 +127,9 @@ export default function SignUpForm() {
 
                         </div>
                     </div>
-                    <Button type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow' disabled={true}>
+                    <Button 
+                        type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow' 
+                        disabled={data.email === '' || data.password === '' || processing}>
                         <span>Join now</span>
                     </Button>
                 </form>

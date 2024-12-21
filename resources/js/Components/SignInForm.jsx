@@ -26,9 +26,11 @@ export default function SignInForm() {
                 <span class="font-inter text-base md:text-xl leading-[120%]">Welcome Back</span>
             </p>
             <section className="flex items-center justify-center flex-col p-5 gap-y-2.5">
-                <button
+                <Link 
+                    as='button'
+                    href='/auth/google/redirect'
                     data-test-id="social-sign-on"
-                    className="group/provider-button text-brand-text-color rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
+                    className="group/provider-button  focus:outline-none text-brand-text-color rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none active:outline-none"
                     tabIndex="-1"
                 >
                     <div className="rounded-full flex items-center transition-all ease-out duration-300 p-2 gap-x-2 group-hover/provider-button:bg-on-tertiary-2/[0.08] group-active/provider-button:bg-on-tertiary-2/[0.16] group-focus/provider-button:bg-transparent">
@@ -49,9 +51,10 @@ export default function SignInForm() {
                     </div>
                     <span className="font-inter text-sm leading-[120%] font-medium">Sign in with Google</span>
                     </div>
-                </button>
+                </Link>
 
-                <button
+                <Link 
+                    as='button'
                     data-test-id="social-sign-on"
                     className="group/provider-button text-on-surface-1 rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
                     tabIndex="-1"
@@ -74,7 +77,7 @@ export default function SignInForm() {
                     </div>
                     <span className="font-inter text-sm leading-[120%] font-medium">Sign in with Facebook</span>
                     </div>
-                </button>
+                </Link>
 
                 <button
                     data-test-id="social-sign-on"
