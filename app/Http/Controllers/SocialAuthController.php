@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialAuthController extends Controller
@@ -14,7 +15,6 @@ class SocialAuthController extends Controller
 
     public function redirect($provider)
     {
-
         if (!in_array($provider, $this->providers)) {
             return redirect()->route('login')->with('error', 'Invalid provider');
         }

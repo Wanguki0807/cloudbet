@@ -90,24 +90,24 @@ export default function SignUpForm() {
             </section>
             <section>
                 <form onSubmit={submitRegForm}  className='flex flex-col gap-y-5 p-5'>
-                    <Input 
-                        label="Email"  
-                        type="text" 
+                    <Input
+                        label="Email"
+                        type="text"
                         name="email"
                         value={data.email}
                         setValue={(e) => setData('email', e.target.value)}
                     />
-                    <Input 
-                        label="Password" 
-                        type="password" 
+                    <Input
+                        label="Password"
+                        type="password"
                         name="password"
                         value={data.password}
                         setValue={(e) => setData('password', e.target.value)}
                     />
                     <div className='py-2'>
                         <div className='flex items-center gap-4'>
-                            <Checkbox 
-                                id='age' 
+                            <Checkbox
+                                id='age'
                                 className='bg-transparent pr-3 text-on-surface-3 border-brand-purple checked:ring-0 checked:outline-none checked:border-none focus:ring-0 outline-none focus:outline-none ring-0 focus:border-none'
                                 checked={data.agePermission}
                                 onChange={(e) => setData('agePermission', e.target.checked)}
@@ -127,8 +127,8 @@ export default function SignUpForm() {
 
                         </div>
                     </div>
-                    <Button 
-                        type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow' 
+                    <Button
+                        type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow'
                         disabled={data.email === '' || data.password === '' || processing}>
                         <span>Join now</span>
                     </Button>

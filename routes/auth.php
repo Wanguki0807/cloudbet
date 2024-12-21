@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-Route::get('/auth/{provider}/redirect', [App\Http\Controllers\Auth\SocialAuthController::class, 'redirect'])
+Route::get('/auth/{provider}/redirect', [App\Http\Controllers\SocialAuthController::class, 'redirect'])
     ->name('social.redirect');
-Route::get('/auth/{provider}/callback', [App\Http\Controllers\Auth\SocialAuthController::class, 'callback'])
+Route::get('/auth/{provider}/callback', [App\Http\Controllers\SocialAuthController::class, 'callback'])
     ->name('social.callback');

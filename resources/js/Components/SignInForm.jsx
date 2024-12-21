@@ -1,6 +1,7 @@
 import React from 'react'
 import Input from './Input';
 import Button from './Button';
+import { useState } from 'react'
 import { Link, useForm } from '@inertiajs/react';
 
 
@@ -11,6 +12,7 @@ export default function SignInForm() {
         password: '',
         remember: false,
     });
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -26,8 +28,7 @@ export default function SignInForm() {
                 <span class="font-inter text-base md:text-xl leading-[120%]">Welcome Back</span>
             </p>
             <section className="flex items-center justify-center flex-col p-5 gap-y-2.5">
-                <Link 
-                    as='button'
+                <Link
                     href='/auth/google/redirect'
                     data-test-id="social-sign-on"
                     className="group/provider-button  focus:outline-none text-brand-text-color rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none active:outline-none"
@@ -53,8 +54,7 @@ export default function SignInForm() {
                     </div>
                 </Link>
 
-                <Link 
-                    as='button'
+                <Link
                     data-test-id="social-sign-on"
                     className="group/provider-button text-on-surface-1 rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
                     tabIndex="-1"
@@ -118,26 +118,33 @@ export default function SignInForm() {
                 ></div>
             </section>
             <section>
-                <form onSubmit={submit} action="post" className='flex flex-col gap-y-5 p-5'>
-                    <Input 
-                        label="Email or username" 
-                        type="text" name="email_username" 
-                        value={data.email_username} 
-                        setValue={(e) => setData('email_username', e.target.value)}
-                    />
-                    <Input 
-                        label="Password" 
-                        type="password" 
-                        name="password"
-                        setValue={(e) => setData('password', e.target.value)}
-                    />
-                    <Button 
-                        type="submit" 
-                        className='disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow' 
-                        disabled={data.email_username === '' || data.password === '' || processing}>
-                        <span>Continue</span>
-                    </Button>
-                </form>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault(); // Prevent the default browser behavior
+                    post('/login'); // Submit the form data to the endpoint
+                }}
+                className="flex flex-col gap-y-5 p-5"
+            >
+            <Input
+                label="Email or username"
+                type="text"
+                name="email_username"
+                setValue={(value) => setData('email_username', value)} // Pass the setData function correctly
+            />
+            <Input
+                label="Password"
+                type="password"
+                name="password"
+                setValue={(value) => setData('password', value)} // Pass the setData function correctly
+            />
+            <Button
+                type="submit"
+                className="disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow"
+                disabled={data.email_username === '' || data.password === '' || processing}
+            >
+                <span>Continue</span>
+            </Button>
+        </form>
                 <div>
                     <div className='flex items-center justify-center text-xs'>
                         <span className='cursor-pointer '>
