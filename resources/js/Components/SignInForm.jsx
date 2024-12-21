@@ -16,7 +16,7 @@ export default function SignInForm() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(('/login'), {
+        post(('/login'),data, {
             onFinish: () => reset('password'),
         });
     };
@@ -119,31 +119,28 @@ export default function SignInForm() {
             </section>
             <section>
             <form
-                onSubmit={(e) => {
-                    e.preventDefault(); // Prevent the default browser behavior
-                    post('/login'); // Submit the form data to the endpoint
-                }}
+                onSubmit={submit}
                 className="flex flex-col gap-y-5 p-5"
             >
-            <Input
-                label="Email or username"
-                type="text"
-                name="email_username"
-                setValue={(value) => setData('email_username', value)} // Pass the setData function correctly
-            />
-            <Input
-                label="Password"
-                type="password"
-                name="password"
-                setValue={(value) => setData('password', value)} // Pass the setData function correctly
-            />
+           <Input
+                        label="Email"
+                        type="text"
+                        name="email"
+                        value={data.email}
+                        setValue={(e) => setData('email', e.target.value)}
+                    />
+                    <Input
+                        label="Password"
+                        type="password"
+                        name="password"
+                        value={data.password}
+                        setValue={(e) => setData('password', e.target.value)}
+                    />
             <Button
-                type="submit"
-                className="disabled:bg-background-btn-disabled text-btn-text-color font-semibold py-2 bg-brand-yellow"
-                disabled={data.email_username === '' || data.password === '' || processing}
-            >
-                <span>Continue</span>
-            </Button>
+                        type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow'
+                        disabled={data.email === '' || data.password === '' || processing}>
+                        <span>Join now</span>
+                    </Button>
         </form>
                 <div>
                     <div className='flex items-center justify-center text-xs'>

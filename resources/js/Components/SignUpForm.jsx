@@ -7,14 +7,16 @@ import { Link, useForm } from '@inertiajs/react';
 export default function SignUpForm() {
 
     const { data, setData, post, processing, errors, reset } = useForm({
+        name:'',
         email: '',
         password: '',
+        password_confirmation: '',
         agePermission: false,
     });
 
     const submitRegForm = (e) => {
         e.preventDefault();
-        post('/register', {
+        post(('/register'),data, {
             onFinish: () => reset('password'),
         });
     };
@@ -91,6 +93,13 @@ export default function SignUpForm() {
             <section>
                 <form onSubmit={submitRegForm}  className='flex flex-col gap-y-5 p-5'>
                     <Input
+                        label="Name"
+                        type="text"
+                        name="name"
+                        value={data.name}
+                        setValue={(e) => setData('name', e.target.value)}
+                    />
+                    <Input
                         label="Email"
                         type="text"
                         name="email"
@@ -103,6 +112,13 @@ export default function SignUpForm() {
                         name="password"
                         value={data.password}
                         setValue={(e) => setData('password', e.target.value)}
+                    />
+                    <Input
+                        label="Password Confirmation"
+                        type="password"
+                        name="password_confirmation"
+                        value={data.password_confirmation}
+                        setValue={(e) => setData('password_confirmation', e.target.value)}
                     />
                     <div className='py-2'>
                         <div className='flex items-center gap-4'>
@@ -129,7 +145,7 @@ export default function SignUpForm() {
                     </div>
                     <Button
                         type="submit" className='disabled:bg-background-btn-disabled py-2 text-btn-text-color font-semibold bg-brand-yellow'
-                        disabled={data.email === '' || data.password === '' || processing}>
+                        disabled={data.email === '' || data.password === '' || data.password_confirmation === '' || processing}>
                         <span>Join now</span>
                     </Button>
                 </form>

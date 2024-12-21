@@ -36,7 +36,7 @@ class SocialAuthController extends Controller
                 return redirect('/dashboard');
             }else{
                 if ($provider === 'google') {
-                    $name = $socialUser->user['given_name'] + $socialUser->user['family_name'];
+                    $name = $socialUser->user['given_name'];
                 } else {
                     $name = $socialUser->name;
                 }
@@ -52,7 +52,7 @@ class SocialAuthController extends Controller
                     ]
                 );
                 Auth::login($user);
-                return redirect('/dashboard');
+                return redirect()->route('dashboard');
             }
         } catch (\Exception $e) {
             return redirect()->route('login')->with('error', 'Authentication failed. Please try again.');
