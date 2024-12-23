@@ -19,4 +19,9 @@ class BettingTicket extends Model
         'games' => 'array',
         'expires_at' =>'datetime'
     ];
+
+    public function games()
+    {
+        return $this->belongsToMany(Games::class, 'betting_ticket_game');
+    }
 }
