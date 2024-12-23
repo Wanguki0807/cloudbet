@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->enum('user_type',['admin','customer'])->default('customer');
             $table->string('phone_number')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             // Social auth fields

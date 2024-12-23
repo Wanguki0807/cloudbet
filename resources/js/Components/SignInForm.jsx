@@ -28,7 +28,7 @@ export default function SignInForm() {
                 <span class="font-inter text-base md:text-xl leading-[120%]">Welcome Back</span>
             </p>
             <section className="flex items-center justify-center flex-col p-5 gap-y-2.5">
-                <Link
+                <a
                     href='/auth/google/redirect'
                     data-test-id="social-sign-on"
                     className="group/provider-button  focus:outline-none text-brand-text-color rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none active:outline-none"
@@ -52,9 +52,9 @@ export default function SignInForm() {
                     </div>
                     <span className="font-inter text-sm leading-[120%] font-medium">Sign in with Google</span>
                     </div>
-                </Link>
+                </a>
 
-                <Link
+                <a
                     data-test-id="social-sign-on"
                     className="group/provider-button text-on-surface-1 rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
                     tabIndex="-1"
@@ -77,7 +77,7 @@ export default function SignInForm() {
                     </div>
                     <span className="font-inter text-sm leading-[120%] font-medium">Sign in with Facebook</span>
                     </div>
-                </Link>
+                </a>
 
                 <button
                     data-test-id="social-sign-on"
@@ -122,6 +122,7 @@ export default function SignInForm() {
                 onSubmit={submit}
                 className="flex flex-col gap-y-5 p-5"
             >
+
            <Input
                         label="Email"
                         type="text"

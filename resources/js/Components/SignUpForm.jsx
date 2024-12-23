@@ -11,6 +11,7 @@ export default function SignUpForm() {
         email: '',
         password: '',
         password_confirmation: '',
+        phone_number:'',
         agePermission: false,
     });
 
@@ -28,7 +29,8 @@ export default function SignUpForm() {
                 <span class="font-inter text-base md:text-xl leading-[120%]">Sign up in seconds</span>
             </p>
             <section className="flex items-center justify-center flex-col p-5 gap-y-2.5">
-                <button
+                <a
+                    href='/auth/google/redirect'
                     data-test-id="social-sign-on"
                     className="group/provider-button text-brand-text-color rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
                     tabIndex="-1"
@@ -51,7 +53,7 @@ export default function SignUpForm() {
                     </div>
                     <span className="font-inter text-sm leading-[120%] font-medium">Sign in with Google</span>
                     </div>
-                </button>
+                </a>
                 <button
                     data-test-id="social-sign-on"
                     className="group/provider-button text-on-surface-1 rounded-full overflow-hidden relative disabled:pointer-events-none disabled:opacity-[0.12] w-full bg-surface-1 outline-none focus:outline-on-surface-1 active:outline-none"
@@ -105,6 +107,13 @@ export default function SignUpForm() {
                         name="email"
                         value={data.email}
                         setValue={(e) => setData('email', e.target.value)}
+                    />
+                     <Input
+                        label="Phone Number"
+                        type="text"
+                        name="phone_number"
+                        value={data.phone_number}
+                        setValue={(e) => setData('phone_number', e.target.value)}
                     />
                     <Input
                         label="Password"

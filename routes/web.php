@@ -24,4 +24,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get('/auth/{provider}/redirect', [App\Http\Controllers\SocialAuthController::class, 'redirect'])
+    ->name('social.redirect');
+Route::get('/auth/{provider}/callback', [App\Http\Controllers\SocialAuthController::class, 'callback'])
+    ->name('social.callback');
+
 require __DIR__.'/auth.php';
+
+

@@ -43,7 +43,7 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => env('FACEBOOK_REDIRECT_URI'),
+        'redirect' => 'https://plain-goats-judge.loca.lt'.env('FACEBOOK_REDIRECT_URI'),
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\OtpController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -58,7 +59,9 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-Route::get('/auth/{provider}/redirect', [App\Http\Controllers\SocialAuthController::class, 'redirect'])
-    ->name('social.redirect');
-Route::get('/auth/{provider}/callback', [App\Http\Controllers\SocialAuthController::class, 'callback'])
-    ->name('social.callback');
+
+Route::get('/otp', function () {
+    return inertia('OtpVerification', ['phone' => session('phone')]);
+})->name('auth.otp');
+
+Route::post('/otp/verify', [OtpController::class, 'verify'])->name('auth.otp.verify');

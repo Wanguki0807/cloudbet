@@ -18,7 +18,7 @@ class SocialAuthController extends Controller
         if (!in_array($provider, $this->providers)) {
             return redirect()->route('login')->with('error', 'Invalid provider');
         }
-
+        Log::info('in the redirect method');
         return Socialite::driver($provider)->redirect();
     }
 
@@ -28,23 +28,24 @@ class SocialAuthController extends Controller
             if (!in_array($provider, $this->providers)) {
                 return redirect()->route('login')->with('error', 'Invalid provider');
             }
-
             $socialUser = Socialite::driver($provider)->user();
             $dbUser= User::where('email',$socialUser->email)->first();
             if($dbUser){
                 Auth::login($dbUser);
-                return redirect('/dashboard');
+                return redirect()->route('dashboard');
             }else{
                 if ($provider === 'google') {
-                    $name = $socialUser->user['given_name'];
+                    $name = $socialUser->name;
                 } else {
                     $name = $socialUser->name;
                 }
+                Log::info('we in here nigga');
                 $user = User::create(
                     [
                         'name' => $name,
                         'email' =>  $socialUser->email,
                         'avatar' => $socialUser->avatar,
+                        'phone_number' => '+2348137742342',
                         'provider' => $provider,
                         'provider_id' => $socialUser->id,
                         "provider_token" => $socialUser->token,
